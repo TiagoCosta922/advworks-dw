@@ -6,6 +6,10 @@ sources:
     schema: purchasing
     tables:
      - name: shipmethod
+  - name : humanresources
+    schema : humanresources
+    tables:
+     - name : employee
     
 
 models:
@@ -25,6 +29,11 @@ models:
       - name: datemodify
         description: The date when the shipment method record was last modified.
 
-  
-
+  - name : stg_employee
+    columns:
+      - name: nationalidnumber
+        description: The unique identifier for the shipment method.
+        tests:      
+          - unique
+          - not_null
   
