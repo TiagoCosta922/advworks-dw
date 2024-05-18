@@ -13,7 +13,7 @@ sources:
      - name : employee
      - name: employeedepartmenthistory
      - name: shift
-     
+
   - name: person
     tables:
       - name: person
@@ -38,16 +38,16 @@ models:
   - name : stg_employee
     columns:
       - name: businessentityid
-        description: The unique identifier for each employee.
-        tests:      
-          - unique
-          - not_null
+        description: The identifier of the entity business.
       - name : firstname
         description: The first name for each employee
       - name : lastname
         description: The last name for each employee
       - name : nationalidnumber
-        description: The nationalidnumber for each employee
+        description: The nationalidnumber for each employee, the identifier for each employee
+        tests:      
+          - unique
+          - not_null
       - name : gender
         description: The gender for each employee
       - name : name
