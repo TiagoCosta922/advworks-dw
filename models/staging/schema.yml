@@ -6,11 +6,17 @@ sources:
     schema: purchasing
     tables:
      - name: shipmethod
+
   - name : humanresources
     schema : humanresources
     tables:
      - name : employee
-    
+     - name: employeedepartmenthistory
+     - name: shift
+     
+  - name: person
+    tables:
+      - name: person
 
 models:
   - name: stg_shipment
@@ -31,9 +37,19 @@ models:
 
   - name : stg_employee
     columns:
-      - name: nationalidnumber
-        description: The unique identifier for the shipment method.
+      - name: businessentityid
+        description: The unique identifier for each employee.
         tests:      
           - unique
           - not_null
+      - name : firstname
+        description: The first name for each employee
+      - name : lastname
+        description: The last name for each employee
+      - name : nationalidnumber
+        description: The nationalidnumber for each employee
+      - name : gender
+        description: The gender for each employee
+      - name : name
+        description: The name of shift of the employee works
   
