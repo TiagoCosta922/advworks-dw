@@ -8,6 +8,10 @@ sources:
      - name: shipmethod
      - name : vendor
      - name: productvendor
+ 
+     - name : purchaseorderdetail
+
+     - name: purchaseorderheader
 
   - name : humanresources
     schema : humanresources
@@ -62,3 +66,101 @@ models:
       - name : name
         description: The name of shift of the employee works
   
+  - name : stg_product
+    columns:
+      - name : productID
+        description: "A unique identifier for the product"
+      - name: ProductName
+        description: "The name of the product"
+      - name: productnumber
+        description: "The product number"
+      - name: safetystocklevel
+        description: "Safety stock level"
+      - name: reorderpoint
+        description: "Reorder point"
+      - name: standardcost
+        description: "Standard cost"
+      - name: listprice
+        description: "List price"
+      - name: productLine
+        description: "Product line"
+      - name: class
+        description: "Class of the product"
+      - name: style
+        description: "Style of the product"
+      - name: productsubcategoryid
+        description: "Product subcategory ID"
+      - name: productsubcategoryname
+        description: "Name of the product subcategory"
+      - name: productcategoryname
+        description: "Name of the product category"
+      - name: productmodelid
+        description: "Product model ID"
+      - name: productmodelname
+        description: "Name of the product model"
+
+  - name : stg_vendor
+    columns:
+      - name: VendorID
+        description: "A unique identifier for the vendor"
+      - name: name
+        description: "The name of the vendor"
+      - name: creditrating
+        description: "The credit rating of the vendor"
+      - name: preferredvendorstatus
+        description: "Preferred vendor status"
+      - name: activeflag
+        description: "Indicates whether the vendor is active"
+      - name: purchasingwebserviceurl
+        description: "The URL of the vendor's purchasing web service"
+      - name: minorderqty
+        description: "Minimum order quantity"
+      - name: maxorderqty
+        description: "Maximum order quantity"
+      - name: onorderqty
+        description: "Quantity currently on order"
+      - name: lastreceiptcost
+        description: "Cost of the last receipt"
+      - name: lastreceiptdate
+        description: "Date of the last receipt"
+      - name: averageleadtime
+        description: "Average lead time for orders"
+      - name: productid
+        description: "Product ID associated with the vendor"
+      - name: productname
+        description: "Name of the product associated with the vendor"
+
+  - name : stg_factorder
+    columns:
+      - name: purchaseorderid
+        description: "A unique identifier for the purchase order"
+      - name: purchaseorderdetailid
+        description: "A unique identifier for the purchase order detail line"
+      - name: orderdate
+        description: "The date when the order was placed"
+      - name: shipdate
+        description: "The date when the order was shipped"
+      - name: status
+        description: "The status of the purchase order"
+      - name: vendorid
+        description: "A unique identifier for the vendor"
+      - name: productid
+        description: "A unique identifier for the product"
+      - name: orderqty
+        description: "The quantity ordered"
+      - name: unitprice
+        description: "The price per unit"
+      - name: receivedqty
+        description: "The quantity received"
+      - name: rejectedqty
+        description: "The quantity rejected"
+      - name: shipmethodid
+        description: "A unique identifier for the shipping method"
+      - name: subtotal
+        description: "The subtotal for the purchase order"
+      - name: taxamt
+        description: "The tax amount for the purchase order"
+      - name: freight
+        description: "The freight cost for the purchase order"
+      - name: modifieddate
+        description: "The date when the record was last modified"
