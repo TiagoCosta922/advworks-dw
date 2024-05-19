@@ -164,3 +164,46 @@ models:
         description: "The freight cost for the purchase order"
       - name: modifieddate
         description: "The date when the record was last modified"
+
+  - name: stg_order
+    columns:
+      - name: purchaseorderid
+        description: "A unique identifier for purchase"
+        tests:
+          - unique
+          - not_null
+      - name: Vendor_ID
+        description: "A unique identifier for the vendor"
+        tests:
+          - unique
+          - not_null
+      - name: businessentityid
+        description: "A unique identifier for the employees"
+        tests:
+          - unique
+          - not_null
+      - name: productID
+        description: "A unique identifier for the product"
+        tests:
+          - unique
+          - not_null
+      - name: ShipMethodID
+        description: "A unique identifier for the shipment company"
+        tests:
+          - unique
+          - not_null
+      - name: revisionnumber
+        description: "Status of the order"
+      - name: orderdate
+        description: "Date of the order"
+      - name: shipdate
+        description: "Date of the delivery"
+      - name: subtotal
+        description: "Total cost of product."
+      - name: taxamt
+        description: "Tax of the delivery"
+      - name: freight
+        description: "cost of the delivery"
+      - name: modifieddate
+        description: "order change status data"
+      
