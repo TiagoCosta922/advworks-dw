@@ -10,8 +10,8 @@ select porder.purchaseorderid as purchaseorder_id,
 		END as state_order,
 	   porder.orderdate,
        porder.shipdate,
+       porder.modifieddate,
 	   porder.subtotal,
 	   porder.taxamt,
-	   porder.freight,
-	   porder.modifieddate
+	   porder.freight
   from {{ source("purchasing", "purchaseorderheader") }} porder
