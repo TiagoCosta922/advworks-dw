@@ -6,6 +6,8 @@ sources:
     schema: purchasing
     tables:
      - name: shipmethod
+     - name : vendor
+     - name: productvendor
 
   - name : humanresources
     schema : humanresources
@@ -17,6 +19,11 @@ sources:
   - name: person
     tables:
       - name: person
+    
+  - name: production
+    schema : production
+    tables:
+      - name: product
 
 models:
   - name: stg_shipment
