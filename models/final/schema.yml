@@ -58,3 +58,47 @@ models:
         description: "This record is valid until this datetime."
       - name: last_updated_at
         description: "Timestamp of the last update to this record."
+
+  - name: dim_vendor
+    description: >
+      Dimension table for the vendors. Each record represents a vendor.
+    columns:
+      - name: sk_vendor
+        description: "A unique identifier for this record in the table"
+        tests:
+          - unique
+          - not_null
+      - name: VendorID
+        description: "A unique identifier for the vendor"
+      - name: name
+        description: "The name of the vendor"
+      - name: creditrating
+        description: "The credit rating of the vendor"
+      - name: preferredvendorstatus
+        description: "Preferred vendor status"
+      - name: activeflag
+        description: "Indicates whether the vendor is active"
+      - name: purchasingwebserviceurl
+        description: "The URL of the vendor's purchasing web service"
+      - name: minorderqty
+        description: "Minimum order quantity"
+      - name: maxorderqty
+        description: "Maximum order quantity"
+      - name: onorderqty
+        description: "Quantity currently on order"
+      - name: lastreceiptcost
+        description: "Cost of the last receipt"
+      - name: lastreceiptdate
+        description: "Date of the last receipt"
+      - name: averageleadtime
+        description: "Average lead time for orders"
+      - name: productid
+        description: "Product ID associated with the vendor"
+      - name: productname
+        description: "Name of the product associated with the vendor"
+      - name: valid_from
+        description: "This record is valid since this datetime."
+      - name: valid_to
+        description: "This record is valid until this datetime."
+      - name: last_updated_at
+        description: "Timestamp of the last update to this record."
