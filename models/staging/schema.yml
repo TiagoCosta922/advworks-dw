@@ -24,6 +24,8 @@ sources:
     schema : production
     tables:
       - name: product
+      - name : productsubcategory
+      - name : productmodel
 
 models:
   - name: stg_shipment
