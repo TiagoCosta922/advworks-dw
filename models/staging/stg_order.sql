@@ -7,7 +7,7 @@ select porder.purchaseorderid as purchaseorder_id,
 	        when porder.status = 2 then 'accpeted'
 			when porder.status = 3 then 'denied'
 			else 'Complete'
-		END as state_order,
+		END as stateorder,
 	   porder.orderdate,
        porder.shipdate,
        porder.modifieddate,
