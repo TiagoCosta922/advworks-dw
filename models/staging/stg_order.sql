@@ -1,5 +1,6 @@
 select porder.purchaseorderid as purchaseorder_id,
        porder.employeeid as employee_id,
+       prod.productID as product_id,
 	   porder.vendorid as vendor_id,
 	   porder.shipmethodID as ship_method_id,
        porder.revisionnumber as revision_number,
@@ -15,3 +16,5 @@ select porder.purchaseorderid as purchaseorder_id,
 	   porder.taxamt,
 	   porder.freight
   from {{ source("purchasing", "purchaseorderheader") }} porder
+  join {{ source("purchasing", "purchaseorderdetail") }} pd on porder.purchaseorderid = pd.purchaseorderid
+  join {{ source("production", "product") }} prod on pd.productid = prod.productid
