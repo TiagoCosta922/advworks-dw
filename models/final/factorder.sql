@@ -5,9 +5,13 @@ WITH dimension_ids AS (
         e.businessentityid AS employee_id,
         sh.ShipMethodID AS shipment_id,
         pp.productID,
-        pur.orderdate,
+        pod.orderqty,
+        pod.unitprice,
+        pod.receivedqty,
+        pod.rejectedqty,
+        pur.orderdate AS orderdate,
         pur.stateorder,
-        pur.shipdate,
+        pur.shipdate AS shipdate,
         pur.subtotal,
         pur.taxamt,
         pur.freight      
@@ -16,6 +20,9 @@ WITH dimension_ids AS (
     LEFT JOIN {{ ref('stg_employee') }} e ON pur.employee_id = e.businessentityid
     LEFT JOIN {{ ref('stg_shipment') }} sh ON pur.ship_method_id = sh.ShipMethodID
     LEFT JOIN {{ ref('stg_product') }} pp ON pur.product_id = pp.productID
+    LEFT JOIN {{ ref('stg_order') }} pod ON pur.purchaseorder_id = pod.purchaseorder_id
+
+    
 
 ),
 
@@ -31,7 +38,11 @@ surrogate_keys AS (
         dids.stateorder,
         dids.subtotal,
         dids.taxamt,
-        dids.freight   
+        dids.freight,
+        dids.orderqty,
+        dids.unitprice,
+        dids.receivedqty,
+        dids.rejectedqty   
     FROM dimension_ids dids
     JOIN {{ ref('dim_date') }} order_dd ON dids.orderdate = order_dd.date
     LEFT JOIN {{ ref('dim_date') }} ship_dd ON dids.shipdate = ship_dd.date
@@ -57,7 +68,11 @@ final AS (
         stateorder,
         subtotal,
         taxamt,
-        freight 
+        freight,
+        orderqty,
+        unitprice,
+        receivedqty,
+        rejectedqty
     FROM surrogate_keys
 )
 
