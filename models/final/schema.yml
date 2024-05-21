@@ -149,3 +149,54 @@ models:
         description: "This record is valid until this datetime."
       - name: last_updated_at
         description: "Timestamp of the last update to this record."
+
+  - name: factorder
+    description: >
+      Fact table for purchasing. Each record represents the state of a purchasing 
+      between the dates valid_from and valid_to.
+    columns:
+      - name: purchase_id
+        description: "A unique identifier for the purchase order"
+        tests:
+          - unique
+          - not_null
+      - name: sk_vendor
+        description: "A unique identifier for the vendor"
+        tests:
+          - unique
+          - not_null
+      - name: sk_employee
+        description: "A unique identifier for the employee"
+        tests:
+          - unique
+          - not_null
+      - name: sk_shipment
+        description: "A unique identifier for the shipment company"
+        tests:
+          - unique
+          - not_null
+      - name: sk_product
+        description: "A unique identifier for the product"
+        tests:
+          - unique
+          - not_null
+      - name: sk_order_date
+        description: "Date of order"
+      - name: sk_shipment_date
+        description: "Date of shipment"
+      - name: state_order
+        description: "Current status of the order"
+      - name: order_subtotal
+        description: "Purchase order subtotal."
+      - name: tax_amount
+        description: "Tax amount"
+      - name: freight
+        description: "Shipping cost"
+      - name: order_qty
+        description: "Order quantity"
+      - name: unit_price
+        description: "Single product price"
+      - name: qty_received
+        description: "Received quantity"
+      - name: qty_rejected
+        description: "Rejected quantity"
