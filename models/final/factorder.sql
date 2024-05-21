@@ -23,7 +23,6 @@ WITH dimension_ids AS (
     LEFT JOIN {{ ref('stg_order') }} pod ON pur.purchaseorder_id = pod.purchaseorder_id
 
     
-
 ),
 
 surrogate_keys AS (
